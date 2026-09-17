@@ -1,0 +1,21 @@
+name: Docker Image Info
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  docker-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t accounts:latest .
+
+      - name: Show Docker image details
+        run: |
+          docker images accounts
+          docker image inspect accounts:latest --format 'Name: {{.RepoTags}} | Image ID: {{.Id}} | Created: {{.Created}} | Size: {{.Size}} bytes'
