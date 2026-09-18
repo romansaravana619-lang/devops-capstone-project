@@ -12,15 +12,25 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: python:3.9-slim
+
+    services:
+      postgres:
+        image: postgres:alpine
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_PASSWORD: pgs3cr3t
+          POSTGRES_DB: testdb
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.9'
 
       - name: Install dependencies
         run: |
@@ -34,3 +44,5 @@ jobs:
 
       - name: Run unit tests with nose
         run: nosetests
+        env:
+          DATABASE_URI: postgresql://postgres:pgs3cr3t@postgres:5432/testdb
