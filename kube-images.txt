@@ -1,8 +1,8 @@
 REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
 REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
-accounts     latest    28222d8814d4   1 second ago   157MB
+accounts     latest    9905e61cc0dd   1 second ago   158MB
 
 Name: accounts:latest
-Image ID: sha256:28222d8814d4344f81b09f5f0a1cc2e484cb1cf493ddd7f44c1ae24e93ca5150
-Created: 2026-09-18T12:10:46.340976895Z
-Size: 157083217 bytes
+Image ID: sha256:9905e61cc0dd460810b6544ec5a270d6544ecb7089c37e699b7676482f383070
+Created: 2026-09-18T12:11:34.310804289Z
+Size: 157552925 bytes
