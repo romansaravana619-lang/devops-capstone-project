@@ -1,5 +1,7 @@
 # DevOps Capstone Project
 
+![Build Status](https://github.com/romansaravana619-lang/devops-capstone-project/actions/workflows/ci-build.yaml/badge.svg)
+
 ## Overview
 
 This repository contains the planning artifacts for a DevOps capstone project using Agile user stories, a product backlog, labels, and a Kanban workflow.
