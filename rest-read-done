@@ -1,0 +1,16 @@
+curl -k -i -X GET https://127.0.0.1:5000/accounts/1
+HTTP/1.1 200 OK
+Server: gunicorn
+Date: Fri, 18 Sep 2026 12:11:35 GMT
+Connection: close
+Content-Type: application/json
+Content-Length: 128
+Access-Control-Allow-Origin: *
+Permissions-Policy: browsing-topics=()
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Content-Security-Policy: default-src 'self'; object-src 'none'
+Strict-Transport-Security: max-age=31556926; includeSubDomains
+Referrer-Policy: strict-origin-when-cross-origin
+
+{"address":"123 Main St.","date_joined":"2026-09-18","email":"john@doe.com","id":1,"name":"John Doe","phone_number":"555-1212"}
