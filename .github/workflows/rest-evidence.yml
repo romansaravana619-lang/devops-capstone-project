@@ -1,0 +1,50 @@
+name: REST Evidence
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  rest-evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip wheel
+          pip install -r requirements.txt
+
+      - name: Start Accounts service over HTTPS
+        run: |
+          openssl req -x509 -newkey rsa:2048 -nodes \
+            -keyout key.pem -out cert.pem -days 1 \
+            -subj "/CN=localhost"
+          nohup gunicorn --bind 127.0.0.1:5000 \
+            --certfile cert.pem --keyfile key.pem service:app > gunicorn.log 2>&1 &
+          sleep 5
+          curl -k -s -o /dev/null https://127.0.0.1:5000/health
+
+      - name: Q13 CREATE account
+        run: |
+          echo "Q13 CREATE"
+          curl -k -i -X POST https://127.0.0.1:5000/accounts \
+            -H "Content-Type: application/json" \
+            -d '{"name":"John Doe","email":"john@doe.com","address":"123 Main St.","phone_number":"555-1212"}'
+
+      - name: Q14 LIST accounts
+        run: |
+          echo "Q14 LIST"
+          curl -k -i -X GET https://127.0.0.1:5000/accounts
+
+      - name: Q15 READ account
+        run: |
+          echo "Q15 READ"
+          curl -k -i -X GET https://127.0.0.1:5000/accounts/1
