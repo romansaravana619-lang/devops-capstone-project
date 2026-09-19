@@ -1,0 +1,14 @@
+Command:
+curl -s http://localhost:8000/djangoapp/review/dealer/1
+
+Output:
+{
+  "status": 200,
+  "reviews": [
+    {
+      "name": "Alex",
+      "review": "Excellent service",
+      "sentiment": "positive"
+    }
+  ]
+}
