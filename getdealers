@@ -1,0 +1,13 @@
+Command:
+curl -s http://localhost:8000/djangoapp/get_dealers
+
+Output:
+{
+  "status": 200,
+  "dealers": [
+    {"id":1,"full_name":"Alamo","city":"Austin","address":"123 Main St","zip":"73301","state":"Texas"},
+    {"id":2,"full_name":"Koepp Inc","city":"Boston","address":"45 Market St","zip":"02108","state":"Massachusetts"},
+    {"id":3,"full_name":"Kuhn-Gerlach","city":"Wichita","address":"78 Central Ave","zip":"67202","state":"Kansas"},
+    {"id":4,"full_name":"West LLC","city":"Topeka","address":"91 Oak St","zip":"66601","state":"Kansas"}
+  ]
+}
