@@ -1,0 +1,15 @@
+Command:
+curl -s http://localhost:8000/djangoapp/dealer/1
+
+Output:
+{
+  "status": 200,
+  "dealer": {
+    "id": 1,
+    "full_name": "Alamo",
+    "city": "Austin",
+    "address": "123 Main St",
+    "zip": "73301",
+    "state": "Texas"
+  }
+}
