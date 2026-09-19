@@ -1,0 +1,25 @@
+Command:
+curl -s http://localhost:8000/djangoapp/get_dealers/Kansas
+
+Output:
+{
+  "status": 200,
+  "dealers": [
+    {
+      "id": 3,
+      "full_name": "Kuhn-Gerlach",
+      "city": "Wichita",
+      "address": "78 Central Ave",
+      "zip": "67202",
+      "state": "Kansas"
+    },
+    {
+      "id": 4,
+      "full_name": "West LLC",
+      "city": "Topeka",
+      "address": "91 Oak St",
+      "zip": "66601",
+      "state": "Kansas"
+    }
+  ]
+}
