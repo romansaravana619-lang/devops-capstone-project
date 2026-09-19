@@ -1,0 +1,8 @@
+Command:
+curl -s http://localhost:8000/djangoapp/logout
+
+Output:
+{
+  "status": 200,
+  "message": "Logout successful"
+}
